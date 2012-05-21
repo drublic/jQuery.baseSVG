@@ -6,6 +6,7 @@
 	$.fn.basesvg = function (options) {
 
 		var defaults = {
+			width: 400,
 			height: 400,
 			from: '#bada55',
 			to: ''
@@ -15,8 +16,7 @@
 
 		/**
 		 *
-		 *  Base64 encode
-		 *  http://www.webtoolkit.info/
+		 *  Base64 encode – from http://www.webtoolkit.info/
 		 *
 		 **/
 		var Base64 = {
@@ -94,17 +94,17 @@
 
 			var svgstring =	'<?xml version="1.0" encoding="utf-8"?>' +
 				'<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">' +
-				'<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" ' +
-				'width="1px" height="' + settings.height + 'px" ' +
-				'viewBox="0 0 1 ' + settings.height + 'px" ' +
-				'enable-background="new 0 0 1 ' + settings.height + '" xml:space="preserve">' +
-					'<linearGradient id="gradient" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="1" y2="' + settings.height + '">' +
-						'<stop offset="0" style="stop-color:' + 		(settings.from || '#000000') 								+ '" ' + ((settings.from) ? '' : 'stop-opacity="0"') + ' />' +
-						'<stop offset="0.05" style="stop-color:' +	(settings.from || '#000000') 								+ '" ' + ((settings.from) ? '' : 'stop-opacity="0"') + ' />' +
-						'<stop offset="0.95" style="stop-color:' +	(settings.to || settings.from || '#000000') 	+ '" ' + ((settings.to) ? '' : 'stop-opacity="0"') + ' />' +
-						'<stop offset="1" style="stop-color:' + 		(settings.to || settings.from || '#000000') 	+ '" ' + ((settings.to) ? '' : 'stop-opacity="0"') + ' />' +
+				'<svg version="1.1" id="gradient-wrapper" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" ' +
+				'width="' + settings.width + 'px" height="' + settings.height + 'px" ' +
+				'viewBox="0 0 ' + settings.width + 'px ' + settings.height + 'px" ' +
+				'enable-background="new 0 0 ' + settings.width + 'px ' + settings.height + '" xml:space="preserve">' +
+					'<linearGradient id="gradient" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="' + settings.width + '" y2="' + settings.height + '">' +
+						'<stop offset="0" style="stop-color:' +    (settings.from || '#000000')                + '" ' + ((settings.from) ? '' : 'stop-opacity="0"') + ' />' +
+						'<stop offset="0.05" style="stop-color:' + (settings.from || '#000000')                + '" ' + ((settings.from) ? '' : 'stop-opacity="0"') + ' />' +
+						'<stop offset="0.95" style="stop-color:' + (settings.to || settings.from || '#000000') + '" ' + ((settings.to) ? '' : 'stop-opacity="0"') + ' />' +
+						'<stop offset="1" style="stop-color:' +    (settings.to || settings.from || '#000000') + '" ' + ((settings.to) ? '' : 'stop-opacity="0"') + ' />' +
 					'</linearGradient>' +
-					'<rect fill="url(#gradient)" width="1" height="' + settings.height + '" />' +
+					'<rect fill="url(#gradient)" width="' + settings.height + 'width" height="' + settings.height + '" />' +
 				'</svg>';
 
 			return startingpoint + Base64.encode(svgstring);

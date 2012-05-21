@@ -7,7 +7,7 @@
 
 		var defaults = {
 			height: 400,
-			from: 'bada55',
+			from: '#bada55',
 			to: ''
 		};
 
@@ -99,10 +99,10 @@
 				'viewBox="0 0 1 ' + settings.height + 'px" ' +
 				'enable-background="new 0 0 1 ' + settings.height + '" xml:space="preserve">' +
 					'<linearGradient id="gradient" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="1" y2="' + settings.height + '">' +
-						'<stop offset="0" style="stop-color:#' + 		(settings.from || '000000') 								+ '" ' + ((settings.from) ? '' : 'stop-opacity="0"') + ' />' +
-						'<stop offset="0.05" style="stop-color:#' + (settings.from || '000000') 								+ '" ' + ((settings.from) ? '' : 'stop-opacity="0"') + ' />' +
-						'<stop offset="0.95" style="stop-color:#' + (settings.to || settings.from || '000000') 	+ '" ' + ((settings.to) ? '' : 'stop-opacity="0"') + ' />' +
-						'<stop offset="1" style="stop-color:#' + 		(settings.to || settings.from || '000000') 	+ '" ' + ((settings.to) ? '' : 'stop-opacity="0"') + ' />' +
+						'<stop offset="0" style="stop-color:' + 		(settings.from || '#000000') 								+ '" ' + ((settings.from) ? '' : 'stop-opacity="0"') + ' />' +
+						'<stop offset="0.05" style="stop-color:' +	(settings.from || '#000000') 								+ '" ' + ((settings.from) ? '' : 'stop-opacity="0"') + ' />' +
+						'<stop offset="0.95" style="stop-color:' +	(settings.to || settings.from || '#000000') 	+ '" ' + ((settings.to) ? '' : 'stop-opacity="0"') + ' />' +
+						'<stop offset="1" style="stop-color:' + 		(settings.to || settings.from || '#000000') 	+ '" ' + ((settings.to) ? '' : 'stop-opacity="0"') + ' />' +
 					'</linearGradient>' +
 					'<rect fill="url(#gradient)" width="1" height="' + settings.height + '" />' +
 				'</svg>';
